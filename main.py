@@ -13,15 +13,12 @@ def generate_raider_io_character_details_url(character_path: str, season:str) ->
     '''
     return f"https://raider.io{character_path}?season={season}"
 
-def fetch_raider_io_character_spec(character_class: str, character_spec: str, region: str, season: str, page: int) -> "json":
-    url = generate_raider_io_character_spec_url(character_class, character_spec, region, season, page)
+def fetch_url_request(url: str) -> "json":
     with session.get(url) as response:
         return response.json()
 
 
-def fetch_character_details(character_path: str, season:str):
 
 
-
-data = fetch_raider_io_character_spec("warlock", "affliction", "eu", "season-tww-1", 1)
-print(data["rankings"]["rankedCharacters"])
+url_ranks = generate_raider_io_character_spec_url("warlock", "affliction", "eu", "season-tww-1", 1)
+print(fetch_url_request(url_ranks))
