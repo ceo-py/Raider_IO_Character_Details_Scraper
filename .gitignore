@@ -1,0 +1,9 @@
+venv
+test
+test.*
+.env
+.gitignore
+__pycache__
+*.json
+*Code*.py
+.vscode
